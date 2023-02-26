@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class Main {
+  public String solution(String str) {
+	  str = str.replaceAll("[^a-zA-z]","");
+	  str = str.toLowerCase();
+	  String tmp = new StringBuilder(str).reverse().toString();
+	  if(str.equals(tmp)) { return "YES";}
+	  else {return "NO";}
+  }
+  public static void main(String[] args){
+	  Main T = new Main();
+	  Scanner sc = new Scanner(System.in);
+	  String input = sc.nextLine();
+	  System.out.print(T.solution(input));
+  }
+}
