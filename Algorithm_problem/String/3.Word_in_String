@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Main {
+  public String solution(String str) {
+	  String[] sarr = str.split(" ");
+	  int maxi=0;
+	  int maxleng=0;
+	  for(int i=0;i<sarr.length;i++) {
+		  if(maxleng<sarr[i].length()) {
+			  maxleng=sarr[i].length();
+			  maxi=i;
+		  }
+	  }
+	  return sarr[maxi];
+  }
+  public static void main(String[] args){
+	  Main T = new Main();
+	  Scanner sc = new Scanner(System.in);
+	  String input = sc.nextLine();
+	  System.out.println(T.solution(input));
+   }
+}
