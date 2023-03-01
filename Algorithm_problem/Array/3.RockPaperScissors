@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Main {
+  public String solution(int num,int[] arra,int [] arrb) {
+	  String answer="";
+	  for(int i=0;i<num;i++) {
+		  if(arra[i]==arrb[i]) {
+			  answer+='D';
+		  }else if(arra[i]==1 && arrb[i]==3) {answer+='A';}
+		   else if(arra[i]==2 && arrb[i]==1) {answer+='A';}
+		   else if(arra[i]==3 && arrb[i]==2) {answer+='A';}
+		   else {answer+='B';}
+	  }
+	  return answer;
+  }
+  public static void main(String[] args){
+	  Main T = new Main();
+	  Scanner sc = new Scanner(System.in);
+	  int N = sc.nextInt();
+	  int[] arrA = new int[N];
+	  int[] arrB = new int[N];
+	  for(int i=0;i<N;i++) {
+		  arrA[i] = sc.nextInt();
+	  }
+	  for(int i=0;i<N;i++) {
+		  arrB[i] = sc.nextInt();
+	  }
+	  for(char x: T.solution(N, arrA,arrB).toCharArray()) {
+		  	System.out.println(x);
+  }		}
+}
