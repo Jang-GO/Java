@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+class Main {
+  public int[] solution(int num) {
+	  int[] p = new int[num];
+	  p[0]=1; p[1]=1;
+	  
+	  for(int i=2; i<num;i++) {
+		  p[i] = p[i-2]+p[i-1];
+	  }
+	  return p;
+  }
+  public static void main(String[] args){
+	  Main T = new Main();
+	  Scanner sc = new Scanner(System.in);
+	  int n = sc.nextInt();
+	  for(int a:T.solution(n)) {
+		  System.out.print(a+" ");
+	  }
+  }		
+}
