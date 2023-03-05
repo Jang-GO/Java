@@ -1,3 +1,7 @@
+/*
+로컬 컴퓨터,네이버 웹사이트의 ip정보 출력
+*/
+
 package ch19;
 
 import java.net.InetAddress;
