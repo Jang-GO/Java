@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.HashMap;
+class Main{
+    public char solution(int N,String str){
+        char answer=' ';
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(char x : str.toCharArray()){
+            //x의 키값을 가져옴 x라는 키가 없으면 0
+            map.put(x,map.getOrDefault(x,0)+1);
+        }
+        int max=Integer.MIN_VALUE;
+        for(char key:map.keySet()){
+            if(map.get(key)>max){
+                max = map.get(key);
+                answer = key;
+            }
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        String str = sc.next();
+        System.out.println(T.solution(N,str));
+    }
+}
+
+        /* key가 존재하는지 확인('A'라는 key가 있는지 확인)
+         *  map.containsKey('A'); -> return값:boolean
+         */
+
+        /*key,value값 출력
+       `` for(char x:map.keySet()){
+            System.out.println(x+" "+map.get(x));
+        }*/
+
+        /* key의 개수
+         *  map.size()
+         */
+
+         /*key 삭제. 그 key의 value값 리턴
+          * map.remove(key)
+          */
