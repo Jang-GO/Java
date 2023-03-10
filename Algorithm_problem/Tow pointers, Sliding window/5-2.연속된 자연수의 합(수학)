@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+class Main{
+    public int solution(int N){
+        int cnt=0; int up=1;
+        N--;
+        while(N>0){
+            up++;
+            N = N-up;
+            if(N%up==0) cnt++;
+        }
+        return cnt;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        System.out.println(T.solution(N));
+    }
+}
