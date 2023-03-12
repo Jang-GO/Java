@@ -1,0 +1,27 @@
+import java.util.*;
+class Main{
+    public int solution(String N){
+        int answer=0;
+        Stack<Character> st = new Stack<>();
+        for(int i=0;i<N.length();i++){
+            if(N.charAt(i)=='(') st.push('(');
+            else{
+                st.pop();
+                if(N.charAt(i-1)=='('){
+                    answer+=st.size();
+                }else{
+                    answer++;
+                }
+            }
+        }
+        return answer; 
+    }
+
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner sc = new Scanner(System.in);
+        String N = sc.nextLine();
+        System.out.println(T.solution(N));
+    }
+}
