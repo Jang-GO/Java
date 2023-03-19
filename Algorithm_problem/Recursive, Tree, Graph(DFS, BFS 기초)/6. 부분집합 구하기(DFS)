@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main{
+    static int n; // 집합의 원소의 개수
+    static int[] ch; 
+    public void DFS(int L){
+        if(L==n+1){
+            String tmp="";
+            for(int i=1; i<=n;i++){
+                if(ch[i]==1) tmp+=(i+" ");
+            }
+            if(tmp.length()>0) System.out.println(tmp);
+        }
+        else{
+            ch[L]=1; //check배열에 L원소를 사용한다는 표시
+            DFS(L+1);// 왼쪽 갈래
+            ch[L]=0;
+            DFS(L+1);// 오른쪽 갈래
+        }
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        n=3;
+        ch = new int[n+1];// 인덱스번호를 원소로 생각
+        T.DFS(1);
+    }  
+}
+    
