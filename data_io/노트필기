@@ -1,0 +1,25 @@
+#데이터베이스 입출력 내용 요약 # MySQL, Client Tool: MySQL Workbench (이것은 자바다 책 참고)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+●JDBC 개요 
+자바는 데이터베이스(DB)와 연결하여 데이터 입출력 작업을 할 수 있도록 JDBC(Java DataBase Connectivity) 라이브러리(java.sql) 제공
+JDBC는 데이터베이스 관리시스템(DBMS)의 종류와 상관없이 동일하게 사용할 수 있는 클래스와 인터페이스로 구성
+(Oracle , MySQL, MariaDB, SQL Server)등 JBDC Driver로 JDBC 인터페이스를 통해 애플리케이션과 연결(실제 DB와 작업하는 것은 JDBC Driver) (DBMS마다 별도로 다운로드 필요)
+  *JDBC에 포함되어 있는 클래스와 인터페이스들
+  #DriverManager : DriverManager 클래스는 JDBC Driver를 관리하며 DB와 연결해서 Connection 구현 객체를 생성
+  #Connection : Connection 인터페이스는 Statement, PreparedStatement, CallableStatement 구현 객체를 생성하며, 트랜잭션(Transaction)처리 및 DB연결을 끊을때 사용
+  #Statement : SQL의 DDL과 DML을 실행할 때 사용. 주로 변경되지 않는 정적 SQL 문을 실행할 때 사용한다.
+  #PreparedStatement : Statement와 동일하게 SQL의 DDL과 DML을 실행할 때 사용. 차이점은 매개변수화 된 SQL 문을 사용할 수 있기 때문에 편리성과 보안성이 좋다.
+  #CallableStatement : DB에 저장되어 있는 프로시저와 함수를 호출할 때 사용.
+  #ResultSet : DB에서가져온 데이터를 읽을 때 사용.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+●DB 연결
+클라이언트 프로그램에서 DB와 연결하려면 해당 DBMS의 JDBC Driver가 필요하다. 또한 연결에 필요한 다음 네 가지 정보가 있어야 한다.
+Ⅰ.DBMS가 설치된 컴퓨터의 IP주소
+Ⅱ.DBMS가 허용하는 포트(Port) 번호
+Ⅲ.사용자(DB계정) 및 비밀번호
+Ⅳ.사용하고자 하는 DB이름
+IP주소는 컴퓨터를 찾아가기 위해, Port번호는 DBMS로 연결하기 위해 필요. DBMS는 여러개의 DB를 관리하므로 실제로 사용할 DB 이름이 필요하며, 어떤 사용자인지 인증받기 위한 계정 및 비밀번호가 필요하다. 
+
+클라이언트 프로그램을 DB와 연결하기 위해 가장먼저 해야 할 작업은 JDBCDriver를 메모리로 로딩하는 것이다. Class.forName() 메소드는 문자열로 주어진 JDBC 클래스를 BuildPath에서 찾고, 메모리로 로딩한다.
+이 과정에서 JDBC Driver 클래스의 static 블록이 실행되면서 DriverManager에 JDBC Driver객체를 등록하게 된다.(만약 JDBC Driver 클래스를 찾지 못하면 ClassNotFoundException예외 발생. 따라서 예외처리 필요)
+DriverManager에 JDBC Driver가 등록되면 getConnection() 메소드로 DB와 연결을 할 수 있다.
