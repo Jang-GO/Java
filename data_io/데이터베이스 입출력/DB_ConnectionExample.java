@@ -9,7 +9,7 @@ public class DB_ConnectionExample {
 		Connection conn = null;
 		try {
 			//JDBC 드라이버 등록
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver"); //Class.forName() : 문자열로 주어진 JDBC 드라이버 클래스를 빌드패스에서 찾고, 메모리로 로딩
 			
 			//연결하기
 			conn = DriverManager.getConnection(
