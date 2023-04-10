@@ -9,7 +9,7 @@
 - [x] 팩터리 메서드 패턴(Factory Method Pattern)
 - [x] 전략 패턴(Strategy Pattern)
 - [x] 템플릿 콜백 패턴(Template Callback Pattern - 견본/회신 패턴)
-- [] etc) 프론트 컨트롤러 패턴, MVC패턴
+- [ ] etc) 프론트 컨트롤러 패턴, MVC패턴
 
 
 # 개념
