@@ -7,7 +7,7 @@
 
 * What’s the distinction between == and equals?<br>
   -><br>
-  '=='은 `primitive type`에 대해서는 값을 비교한다. 그러나 `reference type`에 대해서는 주소값을 비교한다. equals()의 경우는 두 참조변수의 값을 비교하는 목적으로 사용된다.
+  '=='은 `primitive type`에 대해서는 값을 비교한다. 그러나 `reference type`에 대해서는 주소값을 비교한다. **equals()의 경우는 두 참조변수의 값을 비교하는 목적**으로 사용된다.
   ***
 * Equals() must be true if two objects have the same hashCode(), right?<br>
   -><br>
@@ -24,8 +24,16 @@ String클래스는 immutable한 문자열이며 한 번 생성된 String객체�
 StringBuilder클래스와 StringBuffer클래스는 mutable하며 문자열을 효율적으로 수정할 수 있다.<br>
 두 클래스의 차이로는 StringBuilder는 thread-safe하지않아 멀티스레드에서 적합하지않고 StringBuffer는 멀티스레드에서 안전하다
   ***
-* Is String str=“i” synonymous with String str=new String(“i”)?
-* What is the best way to invert a string?
+* Is String str=“i” synonymous with String str=new String(“i”)?<br>
+-><br>
+아니다. str="i"는 문자열의 리터럴 생성방식, str = new String("i")는 문자열 객체 생성방식이다.<br>
+리터럴 생성 방식으로 생성된 문자열은 String Constant Pool에 존재하게 위치하며 같은 문자열이라면 같은 주소값을 공유한다.<br>
+그러나 객체 생성 방식으로 생성시 객체가 **Heap영역에 할당**되며 같은 문자열 내용이 생성되어도 이러한 방식으로 생성할 시 주솟값이 서로 다르다.
+  ***
+* What is the best way to invert a string?<br>
+-><br>
+사실 StringBuilder의 reverse 메서드를 사용하는 방법이 있지만, Java api doc의 AbstractStringBuilder를 보면 배열을 문자열을 배열로 바꾼뒤 문자열의 절반까지 맨 앞의 인덱스와 맨 뒤의 인덱스를 교환하는 방식으로 reverse를 구현한다.
+  ***
 * What are the String class’s common methods?
 * Is it necessary to have abstract methods in abstract classes?
 * What is the distinction between a regular class and an abstract class?
