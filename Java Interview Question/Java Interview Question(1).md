@@ -34,7 +34,17 @@ StringBuilder클래스와 StringBuffer클래스는 mutable하며 문자열을 �
 -><br>
 사실 StringBuilder의 reverse 메서드를 사용하는 방법이 있지만, Java api doc의 AbstractStringBuilder를 보면 배열을 문자열을 배열로 바꾼뒤 문자열의 절반까지 맨 앞의 인덱스와 맨 뒤의 인덱스를 교환하는 방식으로 reverse를 구현한다.
   ***
-* <i>What are the String class’s common methods?
-* <i>Is it necessary to have abstract methods in abstract classes?
-* <i>What is the distinction between a regular class and an abstract class?
-* <i>Can final be used to modify abstract classes?
+* <i>What are the String class’s common methods?</i><br>
+-><br>
+보통 많이 사용하는 문자열의 길이를 구하기위한 `length()`, 문자열의 동등 판단을 위한 `equals()`, 문자열의 문자 글자글자를 char형 배열에 나누어 저장하기 위한 `toCharArray()`등이 있고 이외에도 `charAt()`, `toUpperCase()`, `toLowerCase()`, `replace()` 등이 존재한다.
+  ***
+* <i>Is it necessary to have abstract methods in abstract classes?</i><br>
+-><br>
+맞다. 추상 클래스는 하나 이상의 추상 메서드를 무조건 가져야하며, 추상클래스를 상속하는 자식클래스는 반드시 모든 추상 메서드를 구현해야 한다.
+  ***
+* <i>What is the distinction between a regular class and an abstract class?</i><br>
+-><br>
+일반클래스는 new를 통해 인스턴스를 생성할 수 있지만 추상클래스는 직접적으로 인스턴스를 만들 수 없고 상속을 통해 확장 해야한다. 
+  ***
+* <i>Can final be used to modify abstract classes?</i><br>
+문제가 잘 이해되지 않지만, 추상클래스에서 final 키워드를 사용했을시 이를 상속하는 자식 메서드에서는 해당 final 메서드를 override 할 수 없다.
