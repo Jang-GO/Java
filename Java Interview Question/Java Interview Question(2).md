@@ -25,19 +25,21 @@ hashMap은 해시함수를 이용하여 key의 해시값을 계산한다. 해시
 ***
 * What is the HashSet implementation principle?<br>
 -><br>
-
+HashSet은 내부적으로 HashMap으로 구현되어 있다. HashMap의 Key는 중복을 허용하지 않기 떄문에 Key에 객체를 저장하고 Value에는 dummy data를 저장한다.
 ***
 * What is the distinction between an ArrayList and a LinkedList?<br>
 -><br>
-
+ArrayList는 내부적으로 배열을 사용하여 요소를 저장하고 배열의 크기가 가변적으로 조정이 된다. 연결리스트는 내부적으로 연결리스트를 사용하여 다음 요소를 가리키는 포인터로 연결이 된다. LinkedList같은 경우는 삽입/삭제 작업에 유리하고 ArrayList같은 경우는 배열기반으로 인덱스에 바로 접근하기 때문에 조회에 유리하다. 또한 LinkedList는 내부적으로 다음 노드를 가리키는 주소가 필요하므로 메모리 오버헤드가 발생하여 ArrayList보다는 메모리를 더 사용한다.
 ***
 * How do I convert between an Array and a List?<br>
 -><br>
-
+배열을 리스트로 변환하는 경우에는 `java.util.Arrays` 클래스의 `asList()` 메서드를 사용하면 된다.
+리스트를 배열로 변환하는 경우에는 `List`인터페이스의 `toArray()` 메서드를 이용하면 된다. 이때 toArray()메서드의 파라미터로 배열의 타입을 전달해야 한다. 크기가 0인 배열을 전달하면, 새로운 배열이 동적으로 생성되어 리스트의 요소를 저장한다.<br>
+ex) String[] array = list.toArray(new String[0]);
 ***
 * What is the distinction between an ArrayList and a Vector?<br>
 -><br>
-
+둘의 차이점에는 동기화 유무에 있다.Vector는 thread-safe하며 ArrayList는 그렇지 않다. 따라서 동기화된 Vector보다 ArrayList의 속도가 더욱 빠르다고 할 수 있다. 또한 ArrayList는 최대 인덱스를 초과하는 경우 현재 배열의 크기의 50%늘리는 반면 Vector는 생성자를 이용하여 그 크기를 직접 설정할 수 있다(default = 100%).
 ***
 * What is the distinction between an array and an arraylist?<br>
 -><br>
