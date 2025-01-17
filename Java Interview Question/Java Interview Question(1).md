@@ -40,7 +40,7 @@ StringBuilder클래스와 StringBuffer클래스는 mutable하며 문자열을 �
   ***
 * <i>Is it necessary to have abstract methods in abstract classes?</i><br>
 -><br>
-맞다. 추상 클래스는 하나 이상의 추상 메서드를 무조건 가져야하며, 추상클래스를 상속하는 자식클래스는 반드시 모든 추상 메서드를 구현해야 한다.
+추상클래스가 꼭 추상메서드를 포함해야하는 것은 아니다. 그러나 추상클래스에 추상메서드가 존재한다면, 추상클래스를 상속하는 자식클래스는 반드시 모든 추상 메서드를 구현해야 한다.
   ***
 * <i>What is the distinction between a regular class and an abstract class?</i><br>
 -><br>
